@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/MisterKb30/NodeJs-ToDO#readme",
   "dependencies": {
+    "@mdi/font": "^4.4.95",
     "bulma": "^0.7.5",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
+    "mysql2": "^1.7.0",
     "nodemon": "^1.19.3"
   }
 }

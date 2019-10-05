@@ -1,9 +1,19 @@
-const List = require('../models/list');
+const TodoList = require('../model/createlist');
 
-exports.getList = (req, res, next) => {
-    res.render('lists', {
-        pageTitle: 'To Do List',
-        path: 'lists'
-    });
-}
+exports.getAddTodoList = (req, res, next) => {
+  res.render('admin/add-todolist', {
+    pageTitle: 'To Do List',
+    path: '/'
+  });
+};
 
+exports.postAddTodoList = (req, res, next) => {
+  const message = req.body.title;
+  const todolist = new TodoList(message);
+  todolist
+    .save()
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch(err => console.log(err));
+};
