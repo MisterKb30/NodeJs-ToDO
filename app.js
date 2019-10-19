@@ -7,6 +7,7 @@ app.set('view engine', 'ejs');
 
 const admin = require('./routes/user');
 const shopRoutes = require('./routes/todolist');
+const errorController = require('./controller/error');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -16,5 +17,5 @@ app.use('/fonts', express.static(path.join(__dirname,'node_modules/@mdi/font')))
 
 app.use(admin.routes);
 app.use(shopRoutes);
-
+app.use(errorController.get404);
 app.listen(3000);
